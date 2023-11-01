@@ -1,0 +1,118 @@
+/* Estilos generales */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#navegar {
+    display: flex;
+    background-color: #333; /* Opcional: fondo de navegación */
+}
+#navegar a {
+    color: #fff; /* Opcional: color de texto */
+    text-decoration: none; /* Opcional: quitar subrayado */
+    padding: 10px 40px; /* Opcional: espacio interno en los elementos del menú */
+}
+
+
+
+/* Estilos para el main container */
+.main-container {
+    display: grid;
+    grid-template-columns: 70% 30%; /* La galería ocupa el 70%, el aside el 30% */
+    gap: 10px;
+}
+
+/* Estilos para la galería de fotos */
+.gallery {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.gallery li {
+    width: 200px;
+    max-height: 200px;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para el aside */
+aside {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    
+}
+
+#texto_aside {
+    padding: 20px;
+}
+
+/* Otros estilos */
+article {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Estilos generales para la página (header, nav, footer) */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin: 10px;
+}
+
+#back-to-index {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+nav {
+    background-color: #c5c5c58c;
+    width: 100%; 
+    height: 50px;
+}
+
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px; /* Espacio alrededor del texto */
+    color: #000; /* Color de texto */
+    border-bottom: 3px solid transparent; /* Línea inferior transparente */
+}
+
+/* Estilo para el enlace "Inicio" con un gris más oscuro */
+#marcado{
+    background-color: #99999981; /* Gris más oscuro para "Inicio" */
+}
+
+/* Estilos para cambiar el color de texto cuando se pasa el mouse */
+nav a:hover {
+    color: #fff; /* Cambiar a color de texto blanco al pasar el mouse */
+    border-color: #fff; /* Cambiar a línea inferior blanca al pasar el mouse */
+}

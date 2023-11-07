@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FORMULARIO</title>
+    <link rel="stylesheet" href="formulario.css">
+</head>
+
+<body>
+    <!-- Punto 1: Título -->
+    <h1>Formulario</h1>
+
+    <!-- Punto 2: Envia de forma segura a una página web del servidor prueba.php -->
+    <form action="prueba.php" method="post">
+
+        <!-- Punto 3: Usa las etiquetas fieldset y legend -->
+        <fieldset>
+            <legend>Datos personales</legend>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Introduzca nombre" />
+            <label for="apellido1">Primer apellido:</label>
+            <input type="text" id="apellido1" name="apellido1" placeholder="Introduzca apellido" />
+            <label for="apellido2">Segundo apellido:</label>
+            <input type="text" id="apellido2" name="apellido2" placeholder="Introduzca apellido" />
+            <label for="tipo_documento">Tipo de Documento:</label>
+
+            <!-- Punto 9: Desplegable -->
+            <select id="tipo_documento" name="tipo_documento">
+                <option value="Opciones" selected>Selecciona</option>
+                <option value="dni">DNI</option>
+                <option value="nie">NIE</option>
+                <option value="pasaporte">Pasaporte</option>
+            </select>
+
+            <div id="campo_documento">
+            
+            </div>
+
+            <!-- Punto 12: Insertar imagen o archivo -->
+            <label for="archivo">Documento en PDF (DNI,NIE o pasaporte):</label>
+            <input type="file" id="archivo" name="archivo">
+
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Opciones de reserva</legend>
+            <!-- Punto 11: Fecha -->
+            <label for="fecha">Fecha de entrada:</label>
+            <input type="date" id="fecha" name="fecha">
+
+            <label for="fecha">Fecha de salida:</label>
+            <input type="date" id="fecha" name="fecha">
+            <!-- Punto 8: number -->
+
+            <label for="personas">Número de personas:</label>
+            <input type="number" id="personas" name="personas" min="1" max="20" placeholder="max 20" required>
+
+            <!-- Punto 10: Color (Usado solo para la práctica ya que en este caso no tiene mucho sentido) -->
+            <label for="color-toallas">Color de las toallas:</label>
+            <input id="color" type="color" id="color-toallas" name="color-toallas">
+
+            <p>¿Qué servicios te gustaría tener en la casa rural?</p>
+            <!-- Punto 6: Checkbox -->
+            <input type="checkbox" id="piscina" name="servicios[]" value="Piscina">
+            <label for="piscina">Piscina</label>
+            <input type="checkbox" id="wifi" name="servicios[]" value="Wi-Fi">
+            <label for="wifi">Wi-Fi</label>
+            <input type="checkbox" id="chimenea" name="servicios[]" value="Chimenea">
+            <label for="chimenea">Chimenea</label>
+            <input type="checkbox" id="piscina" name="servicios[]" value="Piscina">
+            <label for="piscina">Piscina</label>
+
+            <p>¿Cuál es para ti un servicio impresindible? (una palabra, máximo 10 caracteres):<p>
+            <input type="text" id="ubicacion-preferida" name="ubicacion-preferida" maxlength="10" required>
+
+        </fieldset>
+
+        <fieldset>
+            <legend>Opinión personal</legend>
+            <label for="valoracion">Valora tu experiencia (1-10):</label>
+            <input type="range" id="valoracion" name="valoracion" min="1" max="10" step="1">
+
+            <!-- Punto 7: Unica respuesta -->
+            <label for="utilidad">¿Qué te ha parecido útil este formulario?</label>
+            <div>
+                <input type="radio" id="utilidad1" name="utilidad" value="Muy útil">
+                <label for="utilidad1">Muy útil</label>
+            </div>
+            <div>
+                <input type="radio" id="utilidad2" name="utilidad" value="Útil">
+                <label for="utilidad2">Útil</label>
+            </div>
+            <div>
+                <input type="radio" id="utilidad3" name="utilidad" value="Poco útil">
+                <label for="utilidad3">Poco útil</label>
+            </div>
+            <div>
+                <input type="radio" id="utilidad4" name="utilidad" value="Nada útil">
+                <label for="utilidad4">Nada útil</label>
+            </div>
+
+            <!-- Cuadro de texto para añadir respuesta -->
+            <label for="comentarios">¿Tienes comentarios o sugerencias?</label>
+            <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea>
+
+        </fieldset>
+
+        <button type="submit">Enviar</button>
+        <!-- Punto 3: Botón para limpiar formulario -->
+        <button type="reset">Limpiar formulario</button>
+        <div>
+            <iframe src="https://leticiadaw.github.io/CasasAteba.html" frameborder="0"></iframe>
+        </div>
+    </form>
+
+    
+
+    <script>
+        // JavaScript para mostrar el campo de entrada según la elección del usuario.
+        document.getElementById("tipo_documento").addEventListener("change", function () {
+            var tipo = this.value;
+            var campo = document.getElementById("campo_documento");
+            campo.innerHTML = "";  // Limpia el contenido anterior.
+
+            if (tipo === "dni") {
+                campo.innerHTML = '<label for="documento">DNI:</label>' +
+                    '<input type="text" id="documento" name="documento" pattern="^[0-9]{8}[A-Za-z]$" title="Introduce un DNI válido" placeholder=" 12345678A ">';
+            } else if (tipo === "nie") {
+                campo.innerHTML = '<label for="documento">NIE:</label>' +
+                    '<input type="text" id="documento" name="documento" pattern="^[XYZxyz][0-9]{7}[A-Za-z]$" title="Introduce un NIE válido" placeholder=" A1234567B ">';
+            } else if (tipo === "pasaporte") {
+                campo.innerHTML = '<label for="documento">Pasaporte:</label>' +
+                    '<input type="text" id="documento" name="documento" title="Introduce un número de pasaporte válido" placeholder=" AB1234567 ">';
+            }
+
+            campo.classList.add("active");
+        });
+
+    </script>
+</body>
+
+</html>

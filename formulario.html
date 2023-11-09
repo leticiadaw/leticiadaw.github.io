@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
 <head>
     <title>FORMULARIO</title>
-    <link rel="stylesheet" href="https://leticiadaw.github.io/formulario.css">
+    <link rel="stylesheet" href="formulario.css">
 </head>
 
 <body>
@@ -13,7 +13,7 @@
     <!-- Punto 2: Envia de forma segura a una página web del servidor prueba.php -->
     <form action="prueba.php" method="post">
 
-        <!-- Punto 3: Usa las etiquetas fieldset y legend -->
+        <!-- Punto 4: Usa las etiquetas fieldset y legend -->
         <fieldset>
             <legend>Datos personales</legend>
             <label for="nombre">Nombre:</label>
@@ -25,6 +25,7 @@
             <label for="tipo_documento">Tipo de Documento:</label>
 
             <!-- Punto 9: Desplegable -->
+            <!-- Punto 14: Desplegable tiene un patrón determinado en un script. Linea 134+ -->
             <select id="tipo_documento" name="tipo_documento">
                 <option value="Opciones" selected>Selecciona</option>
                 <option value="dni">DNI</option>
@@ -51,8 +52,8 @@
 
             <label for="fecha">Fecha de salida:</label>
             <input type="date" id="fecha" name="fecha">
-            <!-- Punto 8: number -->
 
+            <!-- Punto 8: number -->
             <label for="personas">Número de personas:</label>
             <input type="number" id="personas" name="personas" min="1" max="20" placeholder="max 20" required>
 
@@ -70,7 +71,7 @@
             <label for="chimenea">Chimenea</label>
             <input type="checkbox" id="piscina" name="servicios[]" value="Piscina">
             <label for="piscina">Piscina</label>
-
+            <!-- Punto 5: Utiliza solo una palabra para contestar -->
             <p>¿Cuál es para ti un servicio impresindible? (una palabra, máximo 10 caracteres):<p>
             <input type="text" id="ubicacion-preferida" name="ubicacion-preferida" maxlength="10" required>
 
@@ -78,6 +79,7 @@
 
         <fieldset>
             <legend>Opinión personal</legend>
+            <!-- Punto 13: Valoracion con barra movil -->
             <label for="valoracion">Valora tu experiencia (1-10):</label>
             <input type="range" id="valoracion" name="valoracion" min="1" max="10" step="1">
 
@@ -110,6 +112,7 @@
         <!-- Punto 3: Botón para limpiar formulario -->
         <button type="reset">Limpiar formulario</button>
         <div>
+            <!-- Punto 15: iframe a la web de la práctica anterior -->
             <iframe src="https://leticiadaw.github.io/CasasAteba.html" frameborder="0"></iframe>
         </div>
     </form>
@@ -122,13 +125,15 @@
             var tipo = this.value;
             var campo = document.getElementById("campo_documento");
             campo.innerHTML = "";  // Limpia el contenido anterior.
-
+            //Punto 14: En la opcion dni mientra el siguiente label, y el input segun el patron establecido
             if (tipo === "dni") {
                 campo.innerHTML = '<label for="documento">DNI:</label>' +
                     '<input type="text" id="documento" name="documento" pattern="^[0-9]{8}[A-Za-z]$" title="Introduce un DNI válido" placeholder=" 12345678A ">';
+            //Punto 14: En el caso de nie. Igual que el anterior cambia el patrón
             } else if (tipo === "nie") {
                 campo.innerHTML = '<label for="documento">NIE:</label>' +
                     '<input type="text" id="documento" name="documento" pattern="^[XYZxyz][0-9]{7}[A-Za-z]$" title="Introduce un NIE válido" placeholder=" A1234567B ">';
+            //Punto 14: Por ultimo el caso del pasaporte, con otro cambio de patrón.
             } else if (tipo === "pasaporte") {
                 campo.innerHTML = '<label for="documento">Pasaporte:</label>' +
                     '<input type="text" id="documento" name="documento" title="Introduce un número de pasaporte válido" placeholder=" AB1234567 ">';

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
+    <meta charset="UTF-8">
     <title>FORMULARIO</title>
     <link rel="stylesheet" href="formulario.css">
 </head>
@@ -17,11 +18,11 @@
         <fieldset>
             <legend>Datos personales</legend>
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Introduzca nombre" />
+            <input type="text" id="nombre" name="nombre" placeholder="Introduzca nombre" >
             <label for="apellido1">Primer apellido:</label>
-            <input type="text" id="apellido1" name="apellido1" placeholder="Introduzca apellido" />
+            <input type="text" id="apellido1" name="apellido1" placeholder="Introduzca apellido" >
             <label for="apellido2">Segundo apellido:</label>
-            <input type="text" id="apellido2" name="apellido2" placeholder="Introduzca apellido" />
+            <input type="text" id="apellido2" name="apellido2" placeholder="Introduzca apellido" >
             <label for="tipo_documento">Tipo de Documento:</label>
 
             <!-- Punto 9: Desplegable -->
@@ -47,19 +48,19 @@
         <fieldset>
             <legend>Opciones de reserva</legend>
             <!-- Punto 11: Fecha -->
-            <label for="fecha">Fecha de entrada:</label>
-            <input type="date" id="fecha" name="fecha">
+            <label for="fechaEntrada">Fecha de entrada:</label>
+            <input type="date" id="fechaEntrada" name="fecha_entrada">
 
-            <label for="fecha">Fecha de salida:</label>
-            <input type="date" id="fecha" name="fecha">
+            <label for="fechaSalida">Fecha de salida:</label>
+            <input type="date" id="fechaSalida" name="fecha_salida">
 
             <!-- Punto 8: number -->
             <label for="personas">Número de personas:</label>
             <input type="number" id="personas" name="personas" min="1" max="20" placeholder="max 20" required>
 
             <!-- Punto 10: Color (Usado solo para la práctica ya que en este caso no tiene mucho sentido) -->
-            <label for="color-toallas">Color de las toallas:</label>
-            <input id="color" type="color" id="color-toallas" name="color-toallas">
+            <label for="color_toallas">Color de las toallas:</label>
+            <input id="color_toallas" type="color" name="color-toallas">
 
             <p>¿Qué servicios te gustaría tener en la casa rural?</p>
             <!-- Punto 6: Checkbox -->
@@ -69,8 +70,8 @@
             <label for="wifi">Wi-Fi</label>
             <input type="checkbox" id="chimenea" name="servicios[]" value="Chimenea">
             <label for="chimenea">Chimenea</label>
-            <input type="checkbox" id="piscina" name="servicios[]" value="Piscina">
-            <label for="piscina">Piscina</label>
+            <input type="checkbox" id="balcon" name="servicios[]" value="Balcon">
+            <label for="balcon">Balcón</label>
             <!-- Punto 5: Utiliza solo una palabra para contestar -->
             <p>¿Cuál es para ti un servicio impresindible? (una palabra, máximo 10 caracteres):<p>
             <input type="text" id="ubicacion-preferida" name="ubicacion-preferida" maxlength="10" required>
@@ -84,10 +85,10 @@
             <input type="range" id="valoracion" name="valoracion" min="1" max="10" step="1">
 
             <!-- Punto 7: Unica respuesta -->
-            <label for="utilidad">¿Qué te ha parecido útil este formulario?</label>
+            <label for="utilidades">¿Qué te ha parecido útil este formulario?</label>
             <div>
-                <input type="radio" id="utilidad1" name="utilidad" value="Muy útil">
-                <label for="utilidad1">Muy útil</label>
+                <input type="radio" id="utilidades" name="utilidad" value="Muy útil">
+                <label for="utilidades">Muy útil</label>
             </div>
             <div>
                 <input type="radio" id="utilidad2" name="utilidad" value="Útil">
@@ -113,7 +114,7 @@
         <button type="reset">Limpiar formulario</button>
         <div>
             <!-- Punto 15: iframe a la web de la práctica anterior -->
-            <iframe src="https://leticiadaw.github.io/CasasAteba.html" frameborder="0"></iframe>
+            <iframe src="https://leticiadaw.github.io/CasasAteba.html"></iframe>
         </div>
     </form>
 
